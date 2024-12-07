@@ -33,6 +33,7 @@ class Board:
              (3, 6), (4, 6), (5, 6), (5, 5), (5, 4), (5, 3), (4, 3), (3, 3), (3, 4), (3, 5), (4, 5), (4, 4)]
             ]
         pygame.init()
+
         self.screen = pygame.display.set_mode((self.board_size * self.cell_size + 2 * self.padding,
                                                self.board_size * self.cell_size + 2 * self.padding))
         pygame.display.set_caption("Ashta Chamma")
@@ -59,6 +60,7 @@ class Board:
         :param player: Player object
         """
         self.players.append(player)
+
 
     def diceRoll(self):
         """

@@ -71,40 +71,22 @@ class Board:
         return number
 
     def move(self, player, pawn_index, roll):
-        """Move a pawn for the player, based on the dice roll."""
-        print(f"Player {player.player_id} rolled a {roll}")
-
         current_pos = player.pawns[pawn_index]
-        # Ensure the current position is valid
         if current_pos not in self.paths[player.player_id]:
-            print("Error: Pawn is not on the board!")
-            return current_pos
+            print(f"Pawn {pawn_index} for Player {player.player_id} is not on the path.")
+            return current_pos  # Invalid move, return current position
 
         current_pos_index = self.paths[player.player_id].index(current_pos)
         new_pos_index = current_pos_index + roll
 
-        # Handle out of bounds move
         if new_pos_index >= len(self.paths[player.player_id]):
-            print("Move out of bounds!")
-            return current_pos
+            print(f"Move out of bounds for pawn {pawn_index} of Player {player.player_id}.")
+            return current_pos  # Out of bounds, no move
 
-        # Update the new position
         new_position = self.paths[player.player_id][new_pos_index]
-        player.kill = False  # Reset kill flag
-
-        # Check if the position is occupied by another pawn
-        for opponent in self.players:
-            if opponent != player:
-                if new_position in opponent.pawns:
-                    # Kill the opponent's pawn
-                    killed_pawn_index = opponent.pawns.index(new_position)
-                    player.kill = True
-                    # Reset opponent pawn to their start position
-                    opponent.pawns[killed_pawn_index] = self.paths[opponent.player_id][0]  # Reset to start position
-
-        # Update the player's pawn position
-        # player.update_position(pawn_index, new_position)
         return new_position
+
+
 
     def kill_check(self, best_move):
         """

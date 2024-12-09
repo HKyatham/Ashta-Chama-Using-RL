@@ -15,10 +15,10 @@ game_board = Board()
 
 # Define player start positions and colors
 start_positions = [
-    [(0, 4), (1, 4)],  # Player 1, 4 pawns at the same position
-    [(4, 0), (4, 1)],  # Player 2, 4 pawns at the same position
-    [(8, 4), (7, 4)],  # Player 3, 4 pawns at the same position
-    [(4, 8), (4, 7)]   # Player 4, 4 pawns at the same position
+    [(0, 4), (0, 4), (0, 4), (0, 4)],  # Player 1, 4 pawns at the same position
+    [(4, 0), (4, 0), (4, 0), (4, 0)],  # Player 2, 4 pawns at the same position
+    [(8, 4), (8, 4), (8, 4), (8, 4)],  # Player 3, 4 pawns at the same position
+    [(4, 8), (4, 8), (4, 8), (4, 8)]   # Player 4, 4 pawns at the same position
 ]
 
 colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0)]  # Red, Green, Blue, Yellow
